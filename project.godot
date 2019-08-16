@@ -18,6 +18,10 @@ _global_script_class_icons={
 config/name="Digital Guitar Studio"
 config/icon="res://icon.png"
 
+[audio]
+
+enable_audio_input=true
+
 [rendering]
 
 environment/default_environment="res://default_env.tres"
