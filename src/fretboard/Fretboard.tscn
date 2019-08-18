@@ -16,6 +16,7 @@
 [node name="Fretboard" type="Spatial"]
 
 [node name="Strings" type="Spatial" parent="."]
+editor/display_folded = true
 
 [node name="String" parent="Strings" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0 )
@@ -111,6 +112,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 44, 0, 0 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 46, 0, 0 )
 
 [node name="Numbers" type="Spatial" parent="."]
+editor/display_folded = true
 
 [node name="fret_1" type="Sprite3D" parent="Numbers"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -29, 0, 0 )

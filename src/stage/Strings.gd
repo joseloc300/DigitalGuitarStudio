@@ -15,7 +15,8 @@ func _process(delta):
 	if time >= timedelta:
 		time -= timedelta
 		var note_string = randi() % 6 + 1
+		var note_fret = -(randi() % 8) + 8
 		var noteObj = note.instance()
 		noteObj.init(note_string)
-		noteObj.translate( Vector3(0.0, note_string * 0.5, 0.1))
+		noteObj.translate( Vector3(-9.0 + note_fret * 2.0, note_string * 0.5, -10.0))
 		$Notes.add_child(noteObj)

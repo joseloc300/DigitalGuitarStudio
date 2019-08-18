@@ -32,6 +32,9 @@ func init(color):
 	elif color == PURPLE:
 		set_color_purple()
 
+func _process(delta):
+	$".".translate(delta * Vector3(0.0, 0.0, 3.0))
+
 func set_color_red():
 	$CSGBox.material = red_material
 
