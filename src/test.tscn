@@ -6,4 +6,3 @@
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = SubResource( 1 )
-volume_db = 10.097
