@@ -1,4 +1,6 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/fret/fret_mat.tres" type="Material" id=1]
 
 [node name="Fret" type="Spatial"]
 
@@ -6,3 +8,4 @@
 width = 0.25
 height = 3.0
 depth = 0.5
+material = ExtResource( 1 )
