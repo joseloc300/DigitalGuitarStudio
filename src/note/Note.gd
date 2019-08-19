@@ -34,6 +34,8 @@ func init(color):
 
 func _process(delta):
 	$".".translate(delta * Vector3(0.0, 0.0, 3.0))
+	if translation.z >= 0:
+		queue_free()
 
 func set_color_red():
 	$CSGBox.material = red_material
