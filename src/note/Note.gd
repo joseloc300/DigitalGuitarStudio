@@ -7,12 +7,12 @@ const orange_material = preload("res://src/note/orange_note_mat.tres")
 const green_material = preload("res://src/note/green_note_mat.tres")
 const purple_material = preload("res://src/note/purple_note_mat.tres")
 
-const RED = 1
-const YELLOW = 2
-const BLUE = 3
-const ORANGE = 4
-const GREEN = 5
-const PURPLE = 6
+const RED = 6
+const YELLOW = 5
+const BLUE = 4
+const ORANGE = 3
+const GREEN = 2
+const PURPLE = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
