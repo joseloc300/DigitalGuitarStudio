@@ -43,7 +43,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75, 0 )
 
 [node name="Frets" type="Spatial" parent="."]
-editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -29, 1.75, 0 )
 
 [node name="fret_1" parent="Frets" instance=ExtResource( 3 )]
@@ -95,30 +94,31 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14, -0.65, 0 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15, -0.65, 0 )
 
 [node name="fret_17" parent="Frets" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 32, -0.65, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16, -0.65, 0 )
 
 [node name="fret_18" parent="Frets" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 34, -0.65, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17, -0.65, 0 )
 
 [node name="fret_19" parent="Frets" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 36, -0.65, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 18, -0.65, 0 )
 
 [node name="fret_20" parent="Frets" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 38, -0.65, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 19, -0.65, 0 )
 
 [node name="fret_21" parent="Frets" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 40, -0.65, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20, -0.65, 0 )
 
 [node name="fret_22" parent="Frets" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 42, -0.65, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21, -0.65, 0 )
 
 [node name="fret_23" parent="Frets" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 44, -0.65, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 22, -0.65, 0 )
 
 [node name="fret_24" parent="Frets" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 46, -0.65, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23, -0.65, 0 )
 
 [node name="Numbers" type="Spatial" parent="."]
+editor/display_folded = true
 
 [node name="fret_1" type="Sprite3D" parent="Numbers"]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -29, 0, 0 )
