@@ -1,6 +1,6 @@
 extends Spatial
 
-onready var note_node = preload("res://src/note/Note.tscn")
+onready var note_node = preload("res://src/objects/note/Note.tscn")
 onready var parser = preload("res://src/music_parser/MusicParser.tscn")
 
 var notes = []

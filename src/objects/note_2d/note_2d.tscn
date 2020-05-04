@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/objects/note_2d/note_2d.gd" type="Script" id=1]
+
+[node name="note_2d" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="single_sprite" type="Node2D" parent="."]
+
+[node name="Sprite" type="Sprite" parent="single_sprite"]
+scale = Vector2( 0.3, 0.3 )
+
+[node name="double_sprite" type="Node2D" parent="."]
+
+[node name="Sprite_left" type="Sprite" parent="double_sprite"]
+position = Vector2( -7, 0 )
+scale = Vector2( 0.3, 0.3 )
+
+[node name="Sprite_right" type="Sprite" parent="double_sprite"]
+position = Vector2( 7, 0 )
+scale = Vector2( 0.3, 0.3 )

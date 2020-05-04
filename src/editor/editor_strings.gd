@@ -1,6 +1,6 @@
 extends Node2D
 
-onready var string_2d_scene = preload("res://src/string_2d/string_2d.tscn")
+onready var string_2d_scene = preload("res://src/objects/string_2d/string_2d.tscn")
 
 var time_per_string = 2
 

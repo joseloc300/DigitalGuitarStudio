@@ -1,6 +1,6 @@
 extends Node2D
 
-onready var note_2d_node = preload("res://src/note_2d/note_2d.tscn")
+onready var note_2d_node = preload("res://src/objects/note_2d/note_2d.tscn")
 
 var time = 0
 var time_acum = 0

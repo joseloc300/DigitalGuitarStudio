@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/objects/fret/fret_mat.tres" type="Material" id=1]
+
+[node name="Fret" type="Spatial"]
+
+[node name="CSGBox" type="CSGBox" parent="."]
+width = 0.1
+height = 1.75
+depth = 0.1
+material = ExtResource( 1 )

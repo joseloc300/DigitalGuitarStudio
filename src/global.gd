@@ -1,3 +1,5 @@
+tool
+
 extends Node
 
 # load paths
@@ -17,3 +19,4 @@ var input_volume = 0
 
 # gameplay settings
 var video_delay_ms = 0
+var inverted_strings = false
