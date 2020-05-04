@@ -6,6 +6,7 @@ const blue_material = preload("res://src/string/blue_string_mat.tres")
 const orange_material = preload("res://src/string/orange_string_mat.tres")
 const green_material = preload("res://src/string/green_string_mat.tres")
 const purple_material = preload("res://src/string/purple_string_mat.tres")
+const black_material = preload("res://src/string/black_string_mat.tres")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -28,3 +29,6 @@ func set_color_green():
 
 func set_color_purple():
 	$CSGCylinder.material = purple_material
+
+func set_color_black():
+	$CSGCylinder.material = black_material

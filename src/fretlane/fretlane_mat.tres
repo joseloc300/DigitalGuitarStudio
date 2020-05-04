@@ -3,10 +3,10 @@
 [ext_resource path="res://src/fretlane/fretlane_mask.png" type="Texture" id=1]
 
 [resource]
-albedo_color = Color( 0, 0.211765, 0.580392, 0.4 )
+albedo_color = Color( 0, 0.113725, 0.309804, 0.4 )
 emission_enabled = true
-emission = Color( 0, 0.835294, 1, 1 )
-emission_energy = 1.0
+emission = Color( 0, 0.321569, 0.388235, 1 )
+emission_energy = 0.5
 emission_operator = 1
 emission_on_uv2 = false
 emission_texture = ExtResource( 1 )

@@ -1,0 +1,68 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/menus/arrangement_selection/arrangement_selection.gd" type="Script" id=1]
+[ext_resource path="res://src/menus/arrangement_selection/stage_buttongroup.tres" type="ButtonGroup" id=2]
+
+[node name="arrangement_selection" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OptionButton" type="OptionButton" parent="."]
+margin_left = 115.0
+margin_top = 273.0
+margin_right = 423.0
+margin_bottom = 348.0
+
+[node name="Label" type="Label" parent="."]
+margin_left = 140.0
+margin_top = 179.0
+margin_right = 374.0
+margin_bottom = 253.0
+text = "Arrangements scanned: 0"
+
+[node name="Button" type="Button" parent="."]
+margin_left = 834.0
+margin_top = 257.0
+margin_right = 984.0
+margin_bottom = 319.0
+text = "Play"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button2" type="Button" parent="."]
+margin_left = 843.0
+margin_top = 371.0
+margin_right = 1011.0
+margin_bottom = 433.0
+text = "Back To Song Selection"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = -20.0
+
+[node name="CheckBox" type="CheckBox" parent="."]
+margin_left = 869.0
+margin_top = 45.0
+margin_right = 957.0
+margin_bottom = 86.0
+group = ExtResource( 2 )
+text = "2D Tab"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CheckBox2" type="CheckBox" parent="."]
+margin_left = 871.0
+margin_top = 89.0
+margin_right = 955.0
+margin_bottom = 130.0
+pressed = true
+group = ExtResource( 2 )
+text = "3D stage"
+[connection signal="item_selected" from="OptionButton" to="." method="_on_OptionButton_item_selected"]
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_Button2_pressed"]

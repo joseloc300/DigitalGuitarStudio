@@ -1,0 +1,121 @@
+[gd_scene format=2]
+
+[node name="options_menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_right = 119.0
+margin_bottom = 66.0
+size_flags_horizontal = 2
+size_flags_vertical = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
+margin_right = 104.0
+margin_bottom = 14.0
+size_flags_horizontal = 2
+size_flags_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/VBoxContainer"]
+margin_right = 104.0
+margin_bottom = 14.0
+text = "Graphic Settings"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer"]
+margin_top = 18.0
+margin_right = 97.0
+margin_bottom = 184.0
+size_flags_horizontal = 2
+size_flags_vertical = 2
+
+[node name="Label2" type="Label" parent="VBoxContainer/VBoxContainer2"]
+margin_right = 97.0
+margin_bottom = 14.0
+text = "Audio Settings"
+
+[node name="Label" type="Label" parent="VBoxContainer/VBoxContainer2"]
+margin_top = 18.0
+margin_right = 97.0
+margin_bottom = 32.0
+text = "Master Volume"
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer/VBoxContainer2"]
+margin_top = 36.0
+margin_right = 97.0
+margin_bottom = 52.0
+rounded = true
+tick_count = 5
+ticks_on_borders = true
+
+[node name="Label3" type="Label" parent="VBoxContainer/VBoxContainer2"]
+margin_top = 56.0
+margin_right = 97.0
+margin_bottom = 70.0
+text = "Music Volume"
+
+[node name="HSlider2" type="HSlider" parent="VBoxContainer/VBoxContainer2"]
+margin_top = 74.0
+margin_right = 97.0
+margin_bottom = 90.0
+rounded = true
+tick_count = 5
+ticks_on_borders = true
+
+[node name="Label4" type="Label" parent="VBoxContainer/VBoxContainer2"]
+margin_top = 94.0
+margin_right = 97.0
+margin_bottom = 108.0
+text = "Sfx Volume"
+
+[node name="HSlider3" type="HSlider" parent="VBoxContainer/VBoxContainer2"]
+margin_top = 112.0
+margin_right = 97.0
+margin_bottom = 128.0
+rounded = true
+tick_count = 5
+ticks_on_borders = true
+
+[node name="Label5" type="Label" parent="VBoxContainer/VBoxContainer2"]
+margin_top = 132.0
+margin_right = 97.0
+margin_bottom = 146.0
+text = "Input Volume"
+
+[node name="HSlider4" type="HSlider" parent="VBoxContainer/VBoxContainer2"]
+margin_top = 150.0
+margin_right = 97.0
+margin_bottom = 166.0
+rounded = true
+tick_count = 5
+ticks_on_borders = true
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="VBoxContainer"]
+margin_top = 188.0
+margin_right = 119.0
+margin_bottom = 240.0
+
+[node name="Label3" type="Label" parent="VBoxContainer/VBoxContainer3"]
+margin_right = 119.0
+margin_bottom = 14.0
+text = "Gameplay Settings"
+
+[node name="Label4" type="Label" parent="VBoxContainer/VBoxContainer3"]
+margin_top = 18.0
+margin_right = 119.0
+margin_bottom = 32.0
+text = "Video Delay ms"
+
+[node name="HSlider5" type="HSlider" parent="VBoxContainer/VBoxContainer3"]
+margin_top = 36.0
+margin_right = 119.0
+margin_bottom = 52.0
+min_value = -100.0
+rounded = true
+tick_count = 5
+ticks_on_borders = true
