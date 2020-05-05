@@ -1,8 +1,8 @@
 extends Spatial
 
 
-var default_mat = preload("res://src/objects/fretlane/fretlane_mat.tres")
-var active_mat = preload("res://src/objects/fretlane/fretlane_active_mat.tres")
+const default_mat = preload("res://src/objects/fretlane/fretlane_mat.tres")
+const active_mat = preload("res://src/objects/fretlane/fretlane_active_mat.tres")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
