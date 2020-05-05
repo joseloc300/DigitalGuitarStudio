@@ -1,5 +1,3 @@
-tool
-
 extends Spatial
 
 onready var fret = preload("res://src/objects/fret/Fret.tscn")

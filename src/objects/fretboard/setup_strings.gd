@@ -1,5 +1,3 @@
-tool
-
 extends Spatial
 
 onready var string_3d = preload("res://src/objects/string_3d/string_3d.tscn")
