@@ -37,13 +37,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="btn_scan_songs" type="Button" parent="."]
-margin_left = 940.447
-margin_top = 336.4
-margin_right = 1131.45
-margin_bottom = 411.4
-text = "scan songs"
-
 [node name="btn_exit" type="Button" parent="."]
 margin_left = 939.219
 margin_top = 520.561
@@ -51,5 +44,4 @@ margin_right = 1130.22
 margin_bottom = 595.561
 text = "exit"
 [connection signal="pressed" from="btn_play" to="." method="_on_btn_play_pressed"]
-[connection signal="pressed" from="btn_scan_songs" to="." method="_on_btn_scan_songs_pressed"]
 [connection signal="pressed" from="btn_exit" to="." method="_on_btn_exit_pressed"]
