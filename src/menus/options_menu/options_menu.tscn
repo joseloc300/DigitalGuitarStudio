@@ -1,8 +1,11 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/menus/options_menu/options_menu.gd" type="Script" id=1]
 
 [node name="options_menu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -119,3 +122,11 @@ min_value = -100.0
 rounded = true
 tick_count = 5
 ticks_on_borders = true
+
+[node name="btn_back" type="Button" parent="."]
+margin_left = 930.0
+margin_top = 520.0
+margin_right = 1120.0
+margin_bottom = 595.0
+text = "Save and Back"
+[connection signal="pressed" from="btn_back" to="." method="_on_btn_back_pressed"]

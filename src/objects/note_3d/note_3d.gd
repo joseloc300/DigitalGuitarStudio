@@ -44,7 +44,7 @@ func init_from_chord(time, string, fret, scroll_speed, playback_speed):
 	
 	set_color(string)
 
-func _process(delta):
+func _physics_process(delta):
 	var movement = delta * Vector3(0.0, 0.0, scrollSpeed)
 	$".".translate(movement)
 	if translation.z >= 0:
@@ -52,6 +52,7 @@ func _process(delta):
 		if !frozen && tailLength != 0:
 			$note.translation.z = 0
 			$note.set_ignore_transform_notification(true)
+			frozen = true
 		updateTail(movement)
 	if translation.z - tailLength >= 0:
 		queue_free()

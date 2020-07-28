@@ -28,20 +28,31 @@ __meta__ = {
 }
 
 [node name="btn_play" type="Button" parent="."]
-margin_left = 936.764
-margin_top = 178.022
-margin_right = 1127.76
-margin_bottom = 253.022
-text = "play"
+margin_left = 930.0
+margin_top = 180.0
+margin_right = 1120.0
+margin_bottom = 255.0
+text = "Play"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="btn_options" type="Button" parent="."]
+margin_left = 930.0
+margin_top = 350.0
+margin_right = 1120.0
+margin_bottom = 425.0
+text = "Options"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="btn_exit" type="Button" parent="."]
-margin_left = 939.219
-margin_top = 520.561
-margin_right = 1130.22
-margin_bottom = 595.561
-text = "exit"
+margin_left = 930.0
+margin_top = 520.0
+margin_right = 1120.0
+margin_bottom = 595.0
+text = "Exit"
 [connection signal="pressed" from="btn_play" to="." method="_on_btn_play_pressed"]
+[connection signal="pressed" from="btn_options" to="." method="_on_btn_options_pressed"]
 [connection signal="pressed" from="btn_exit" to="." method="_on_btn_exit_pressed"]

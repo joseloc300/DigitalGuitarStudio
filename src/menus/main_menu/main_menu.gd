@@ -14,5 +14,9 @@ func _on_btn_play_pressed():
 	get_tree().change_scene("res://src/menus/song_list/song_list.tscn")
 
 
+func _on_btn_options_pressed():
+	get_tree().change_scene("res://src/menus/options_menu/options_menu.tscn")
+
+
 func _on_btn_exit_pressed():
 	get_tree().quit(0)

@@ -39,11 +39,12 @@ func _ready():
 	play_music()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	time += delta
+func _physics_process(delta):
+	
 	spawn_notes_2()
 	update_difficulty()
 	move_camera()
+	time += delta
 
 func update_difficulty():
 	var time_lower_bound = 0
