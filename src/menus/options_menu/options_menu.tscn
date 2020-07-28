@@ -48,11 +48,12 @@ margin_right = 97.0
 margin_bottom = 32.0
 text = "Master Volume"
 
-[node name="HSlider" type="HSlider" parent="VBoxContainer/VBoxContainer2"]
+[node name="slider_master_vol" type="HSlider" parent="VBoxContainer/VBoxContainer2"]
 margin_top = 36.0
 margin_right = 97.0
 margin_bottom = 52.0
-rounded = true
+max_value = 1.0
+step = 0.01
 tick_count = 5
 ticks_on_borders = true
 
@@ -62,11 +63,12 @@ margin_right = 97.0
 margin_bottom = 70.0
 text = "Music Volume"
 
-[node name="HSlider2" type="HSlider" parent="VBoxContainer/VBoxContainer2"]
+[node name="slider_music_vol" type="HSlider" parent="VBoxContainer/VBoxContainer2"]
 margin_top = 74.0
 margin_right = 97.0
 margin_bottom = 90.0
-rounded = true
+max_value = 1.0
+step = 0.01
 tick_count = 5
 ticks_on_borders = true
 
@@ -129,4 +131,6 @@ margin_top = 520.0
 margin_right = 1120.0
 margin_bottom = 595.0
 text = "Save and Back"
+[connection signal="value_changed" from="VBoxContainer/VBoxContainer2/slider_master_vol" to="." method="_on_slider_master_vol_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/VBoxContainer2/slider_music_vol" to="." method="_on_slider_music_vol_value_changed"]
 [connection signal="pressed" from="btn_back" to="." method="_on_btn_back_pressed"]

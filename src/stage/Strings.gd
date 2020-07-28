@@ -46,6 +46,12 @@ func _physics_process(delta):
 	move_camera()
 	time += delta
 
+
+func _update_volume():
+	var converted_volume = Global.master_volume * Global.music_volume * 100
+	converted_volume = (converted_volume - 100 ) * 0.8
+	$AudioStreamPlayer.volume_db = converted_volume
+
 func update_difficulty():
 	var time_lower_bound = 0
 	var time_upper_bound = 0
@@ -207,7 +213,7 @@ func spawn_notes_2():
 		$Notes.add_child(notes[curr_index])
 		curr_index += 1
 
-func play_music():
+func play_music():	
 	var filepath
 	var music_path = Global.selected_song_path + "/audio/windows/"
 		
@@ -231,6 +237,7 @@ func play_music():
 		var audio_stream_ogg = AudioStreamOGGVorbis.new()
 		audio_stream_ogg.set_data(file.get_buffer(file.get_len()))
 		$AudioStreamPlayer.stream = audio_stream_ogg
+		_update_volume()
 		$AudioStreamPlayer.play()
 
 func reset_notes():

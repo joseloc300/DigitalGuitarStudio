@@ -47,13 +47,13 @@ func readArrangement():
 	print("error code: " + str(code))
 	parser.read()
 	node_type = parser.get_node_type()
-	parse_song_length()
-	parse_phrase_iterations()
-	parse_chord_templates()
-	parse_sections()
-	parse_levels()
+	_parse_song_length()
+	_parse_phrase_iterations()
+	_parse_chord_templates()
+	_parse_sections()
+	_parse_levels()
 
-func parse_song_length():
+func _parse_song_length():
 	while node_type != 1 || parser.get_node_name() != "songLength":
 		parser.read()
 		node_type = parser.get_node_type()
@@ -67,7 +67,7 @@ func parse_song_length():
 		parser.read()
 		node_type = parser.get_node_type()
 
-func parse_phrase_iterations():
+func _parse_phrase_iterations():
 	while node_type != 1 || parser.get_node_name() != "phraseIterations":
 		parser.read()
 		node_type = parser.get_node_type()
@@ -84,14 +84,14 @@ func parse_phrase_iterations():
 			new_phrase_iteration.time = float(parser.get_named_attribute_value("time"))
 			new_phrase_iteration.phrase_id = int(parser.get_named_attribute_value("phraseId"))
 			new_phrase_iteration.variation = parser.get_named_attribute_value("variation")
-			new_phrase_iteration.hero_levels = parse_hero_levels()
+			new_phrase_iteration.hero_levels = _parse_hero_levels()
 			phrase_iterations.append(new_phrase_iteration)
 	
 	if n_phrase_iterations != phrase_iterations.size():
 		print("number of parsed phrase iterations different from stated number of phrase iterations")
 		print(str(n_phrase_iterations) + " != " + str(phrase_iterations.size()))
 
-func parse_hero_levels():
+func _parse_hero_levels():
 	var hero_levels = []
 	var n_hero_levels = 3
 	
@@ -125,7 +125,7 @@ func parse_hero_levels():
 	
 	return hero_levels
 
-func parse_chord_templates():
+func _parse_chord_templates():
 	while node_type != 1 || parser.get_node_name() != "chordTemplates":
 		parser.read()
 		node_type = parser.get_node_type()
@@ -158,7 +158,7 @@ func parse_chord_templates():
 		print("number of parsed chord templates different from stated number of chord templates")
 		print(str(n_chord_templates) + " != " + str(chord_templates.size()))
 
-func parse_sections():
+func _parse_sections():
 	while node_type != 1 || parser.get_node_name() != "sections":
 		parser.read()
 		node_type = parser.get_node_type()
@@ -182,7 +182,7 @@ func parse_sections():
 		print("number of parsed sections different from stated number of sections")
 		print(str(n_sections) + " != " + str(sections.size()))
 
-func parse_levels():
+func _parse_levels():
 	while node_type != 1 || parser.get_node_name() != "levels":
 		parser.read()
 		node_type = parser.get_node_type()
@@ -196,10 +196,10 @@ func parse_levels():
 		if node_type == 1 && parser.get_node_name() == "level":
 			var new_level= {}
 			var difficulty = int(parser.get_named_attribute_value("difficulty"))
-			var notes = parse_notes()
-			var chords = parse_chords()
-			var anchors = parse_anchors()
-			var hand_shapes = parse_hand_shapes()
+			var notes = _parse_notes()
+			var chords = _parse_chords()
+			var anchors = _parse_anchors()
+			var hand_shapes = _parse_hand_shapes()
 			new_level.difficulty = difficulty
 			new_level.notes = notes
 			new_level.chords = chords
@@ -210,7 +210,7 @@ func parse_levels():
 		print("number of parsed levels different from stated number of levels")
 		print(str(n_levels) + " != " + str(levels.size()))
 
-func parse_notes():
+func _parse_notes():
 	var notes = []
 	
 	while node_type != 1 || parser.get_node_name() != "notes":
@@ -224,7 +224,7 @@ func parse_notes():
 		node_type = parser.get_node_type()
 		
 		if node_type == 1 && parser.get_node_name() == "note":
-			var new_note = parse_note()
+			var new_note = _parse_note()
 			notes.append(new_note)
 	
 	if n_notes != notes.size():
@@ -233,7 +233,7 @@ func parse_notes():
 	
 	return notes
 
-func parse_note():
+func _parse_note():
 	var new_note = {}
 	new_note.time = float(parser.get_named_attribute_value("time"))
 	new_note.link_next = int(parser.get_named_attribute_value("linkNext"))
@@ -281,7 +281,7 @@ func parse_note():
 	return new_note
 
 # if there are problems check if its necessary to parse chord notes when they appear
-func parse_chords():
+func _parse_chords():
 	var chords = []
 	
 	while node_type != 1 || parser.get_node_name() != "chords":
@@ -317,7 +317,7 @@ func parse_chords():
 	
 	return chords
 
-func parse_anchors():
+func _parse_anchors():
 	var anchors = []
 	
 	while node_type != 1 || parser.get_node_name() != "anchors":
@@ -343,11 +343,11 @@ func parse_anchors():
 	
 	return anchors
 
-func parse_hand_shapes():
+func _parse_hand_shapes():
 	pass
 
 # deprecated
-func reorder_notes():
+func _reorder_notes():
 	var not_sorted = true
 	
 	while(not_sorted):	
