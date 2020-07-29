@@ -28,9 +28,7 @@ func _on_btn_back_pressed():
 
 func _on_slider_master_vol_value_changed(value):
 	Global.master_volume = value
-	print(value)
 
 
 func _on_slider_music_vol_value_changed(value):
 	Global.music_volume = value
-	print(value)
