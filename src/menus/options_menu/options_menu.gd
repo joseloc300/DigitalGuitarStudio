@@ -8,12 +8,17 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	_setup_values()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+
+func _setup_values():
+	$VBoxContainer/VBoxContainer2/slider_master_vol.value = Global.master_volume
+	$VBoxContainer/VBoxContainer2/slider_music_vol.value = Global.music_volume
 
 
 func _on_btn_back_pressed():

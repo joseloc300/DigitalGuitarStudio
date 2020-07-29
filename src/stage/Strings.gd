@@ -48,8 +48,7 @@ func _physics_process(delta):
 
 
 func _update_volume():
-	var converted_volume = Global.master_volume * Global.music_volume * 100
-	converted_volume = (converted_volume - 100 ) * 0.8
+	var converted_volume = linear2db(Global.master_volume * Global.music_volume)
 	$AudioStreamPlayer.volume_db = converted_volume
 
 func update_difficulty():

@@ -12,10 +12,10 @@ var curr_preview_time = ""
 
 
 # audio settings
-var master_volume = 0
-var music_volume = 0
-var sfx_volume = 0
-var input_volume = 0
+var master_volume = 0.5
+var music_volume = 0.5
+var sfx_volume = 0.5
+var input_volume = 0.5
 
 # gameplay settings
 var video_delay_ms = 0
