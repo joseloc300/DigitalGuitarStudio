@@ -141,6 +141,9 @@ func _parse_chord_templates():
 	
 	var n_chord_templates = int(parser.get_named_attribute_value("count"))
 	
+	if n_chord_templates == 0:
+		return
+	
 	while node_type != 2 || parser.get_node_name() != "chordTemplates":
 		parser.read()
 		node_type = parser.get_node_type()
