@@ -1,0 +1,68 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/menus/backing_track_list/backing_track_list.gd" type="Script" id=1]
+
+[node name="backing_track_list" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemList" type="ItemList" parent="."]
+margin_right = 1280.0
+margin_bottom = 720.0
+
+[node name="Tempo" type="Control" parent="."]
+margin_left = 1050.0
+margin_top = 20.0
+margin_right = 1250.0
+margin_bottom = 70.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Tempo"]
+margin_right = 200.0
+margin_bottom = 15.0
+text = "Tempo"
+align = 1
+
+[node name="Min" type="HSlider" parent="Tempo"]
+margin_top = 20.0
+margin_right = 200.0
+margin_bottom = 40.0
+tick_count = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Max" type="HSlider" parent="Tempo"]
+margin_top = 40.0
+margin_right = 200.0
+margin_bottom = 60.0
+
+[node name="Key" type="Control" parent="."]
+margin_left = 1050.0
+margin_top = 100.0
+margin_right = 1250.0
+margin_bottom = 150.0
+
+[node name="Label" type="Label" parent="Key"]
+margin_right = 200.0
+margin_bottom = 15.0
+text = "Key"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OptionButton" type="OptionButton" parent="Key"]
+margin_top = 20.0
+margin_right = 200.0
+margin_bottom = 40.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[connection signal="item_selected" from="ItemList" to="." method="_on_ItemList_item_selected"]

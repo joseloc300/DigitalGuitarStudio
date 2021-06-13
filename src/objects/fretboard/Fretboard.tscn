@@ -1,6 +1,6 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://src/objects/fretboard/setup_strings.gd" type="Script" id=1]
+[ext_resource path="res://src/objects/fretboard/Fretboard.gd" type="Script" id=2]
 [ext_resource path="res://src/objects/fretboard/1.png" type="Texture" id=4]
 [ext_resource path="res://src/objects/fretboard/2.png" type="Texture" id=5]
 [ext_resource path="res://src/objects/fretboard/3.png" type="Texture" id=6]
@@ -11,12 +11,11 @@
 [ext_resource path="res://src/objects/fretboard/8.png" type="Texture" id=11]
 [ext_resource path="res://src/objects/fretboard/9.png" type="Texture" id=12]
 [ext_resource path="res://src/objects/fretboard/0.png" type="Texture" id=13]
-[ext_resource path="res://src/objects/fretboard/setup_frets.gd" type="Script" id=14]
 
 [node name="Fretboard" type="Spatial"]
+script = ExtResource( 2 )
 
 [node name="strings" type="Spatial" parent="."]
-script = ExtResource( 1 )
 
 [node name="Numbers" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 18.5, 0, 0 )
@@ -179,6 +178,5 @@ texture = ExtResource( 7 )
 
 [node name="frets" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, 0 )
-script = ExtResource( 14 )
 
 [node name="numbers" type="Spatial" parent="."]

@@ -1,9 +1,13 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://src/objects/chord_3d/chord_3d_mat.tres" type="Material" id=1]
+[ext_resource path="res://src/objects/chord_3d/chord_3d.gd" type="Script" id=2]
 
 [node name="chord_3d" type="Spatial"]
+script = ExtResource( 2 )
 
 [node name="CSGBox" type="CSGBox" parent="."]
+width = 1.0
+height = 1.75
 depth = 0.1
 material = ExtResource( 1 )

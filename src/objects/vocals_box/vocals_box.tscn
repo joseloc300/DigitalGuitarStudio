@@ -1,0 +1,16 @@
+[gd_scene format=2]
+
+[node name="vocals_box" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_right = 459.0
+margin_bottom = 85.0
+bbcode_enabled = true
+bbcode_text = "The sky is [color=aqua]blue[/color]"
+text = "The sky is blue"
+scroll_active = false

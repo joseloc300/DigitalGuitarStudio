@@ -1,5 +1,8 @@
 extends Node
 
+var arr_path = null
+var vocals_path = null
+
 var notes = []
 var song_length = 0
 var curr_index = 0
@@ -42,9 +45,15 @@ func _ready():
 #func _process(delta):
 #	pass
 
+
+func set_paths(arr_path, vocals_path):
+	self.arr_path = arr_path
+	self.vocals_path = vocals_path
+
 func readArrangement():
-	var code = parser.open(Global.selected_arrangement_path)
-	print("error code: " + str(code))
+	var code = parser.open(arr_path)
+	if code != 0:
+		print("error code: " + str(code))
 	parser.read()
 	node_type = parser.get_node_type()
 	_parse_song_length()
@@ -140,18 +149,22 @@ func _parse_chord_templates():
 			var new_chord_template = {}
 			new_chord_template.display_name = parser.get_named_attribute_value("displayName")
 			new_chord_template.chord_name = parser.get_named_attribute_value("chordName")
-			new_chord_template.fret_0 = int(parser.get_named_attribute_value("fret0"))
-			new_chord_template.fret_1 = int(parser.get_named_attribute_value("fret1"))
-			new_chord_template.fret_2 = int(parser.get_named_attribute_value("fret2"))
-			new_chord_template.fret_3 = int(parser.get_named_attribute_value("fret3"))
-			new_chord_template.fret_4 = int(parser.get_named_attribute_value("fret4"))
-			new_chord_template.fret_5 = int(parser.get_named_attribute_value("fret5"))
-			new_chord_template.finger_0 = int(parser.get_named_attribute_value("finger0"))
-			new_chord_template.finger_1 = int(parser.get_named_attribute_value("finger1"))
-			new_chord_template.finger_2 = int(parser.get_named_attribute_value("finger2"))
-			new_chord_template.finger_3 = int(parser.get_named_attribute_value("finger3"))
-			new_chord_template.finger_4 = int(parser.get_named_attribute_value("finger4"))
-			new_chord_template.finger_5 = int(parser.get_named_attribute_value("finger5"))
+			new_chord_template.frets = []
+			new_chord_template.frets.resize(6)
+			new_chord_template.frets[0] = int(parser.get_named_attribute_value("fret0"))
+			new_chord_template.frets[1] = int(parser.get_named_attribute_value("fret1"))
+			new_chord_template.frets[2] = int(parser.get_named_attribute_value("fret2"))
+			new_chord_template.frets[3] = int(parser.get_named_attribute_value("fret3"))
+			new_chord_template.frets[4] = int(parser.get_named_attribute_value("fret4"))
+			new_chord_template.frets[5] = int(parser.get_named_attribute_value("fret5"))
+			new_chord_template.fingers = []
+			new_chord_template.fingers.resize(6)
+			new_chord_template.fingers[0] = int(parser.get_named_attribute_value("finger0"))
+			new_chord_template.fingers[1] = int(parser.get_named_attribute_value("finger1"))
+			new_chord_template.fingers[2] = int(parser.get_named_attribute_value("finger2"))
+			new_chord_template.fingers[3] = int(parser.get_named_attribute_value("finger3"))
+			new_chord_template.fingers[4] = int(parser.get_named_attribute_value("finger4"))
+			new_chord_template.fingers[5] = int(parser.get_named_attribute_value("finger5"))
 			chord_templates.append(new_chord_template)
 	
 	if n_chord_templates != chord_templates.size():
@@ -218,6 +231,9 @@ func _parse_notes():
 		node_type = parser.get_node_type()
 	
 	var n_notes = int(parser.get_named_attribute_value("count"))
+	
+	if n_notes == 0:
+		return notes
 	
 	while node_type != 2 || parser.get_node_name() != "notes":
 		parser.read()

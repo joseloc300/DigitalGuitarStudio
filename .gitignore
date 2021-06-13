@@ -9,6 +9,13 @@ export_presets.cfg
 
 #song folder
 songs/
+backingtracks/
 
 #builds folder
 builds/
+
+#configs folder
+configs/
+
+#song importer folder
+importer/

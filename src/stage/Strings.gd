@@ -3,6 +3,7 @@ extends Spatial
 onready var note_node = preload("res://src/objects/note_3d/note_3d.tscn")
 onready var parser = preload("res://src/music_parser/MusicParser.tscn")
 
+
 var notes = []
 var time = 0
 var curr_index = 0
@@ -19,12 +20,14 @@ var parserObj
 var curr_anchor = 0
 var curr_difficulty = 0
 const scrool_speed = 15
+const time_offset = 6
 
 var playback_speed = 1.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	parserObj = parser.instance()
+	parserObj.set_paths(Global.selected_arrangement_path, null)
 	parserObj.readArrangement()
 	#notes = parserObj.notes
 	#note_count = parserObj.note_count
@@ -34,21 +37,20 @@ func _ready():
 	chord_templates = parserObj.chord_templates
 	$GUI/SpinBox.max_value = levels.size() - 1
 	$GUI.set_sections(sections)
-	create_notes_2()
+	create_notes()
 	reorder_notes()
 	play_music()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	
-	spawn_notes_2()
+	spawn_notes()
 	update_difficulty()
 	move_camera()
 	time += delta
 
 
 func _update_volume():
-	var converted_volume = linear2db(Global.master_volume * Global.music_volume)
+	var converted_volume = linear2db(Global.audio_settings.master_volume * Global.audio_settings.music_volume)
 	$AudioStreamPlayer.volume_db = converted_volume
 
 func update_difficulty():
@@ -61,7 +63,7 @@ func update_difficulty():
 		if i + 1 < phrase_iterations.size():
 			time_upper_bound = phrase_iterations[i + 1].time
 		else:
-			time_upper_bound = -1		
+			time_upper_bound = -1
 		
 		if time < time_lower_bound or time >= time_upper_bound:
 			continue
@@ -85,13 +87,6 @@ func move_camera():
 	$InterpolatedCamera.pause_mode = Node.PAUSE_MODE_INHERIT
 
 func create_notes():
-	for note in levels[curr_difficulty].notes:
-		var noteObj = note_node.instance()
-		noteObj.init(note, scrool_speed, playback_speed)
-		noteObj.translate( Vector3(-11.5 + note.fret, 1.75 - note.string * 0.25, -90))
-		notes.append(noteObj)
-
-func create_notes_2():
 	var time_lower_bound = 0
 	var time_upper_bound = 0
 	
@@ -113,8 +108,8 @@ func create_notes_2():
 			elif time_upper_bound != -1 and note.time >= time_upper_bound:
 				break
 			var noteObj = note_node.instance()
-			noteObj.init(note, scrool_speed, playback_speed)
-			noteObj.translate( Vector3(-11.5 + note.fret, 1.75 - note.string * 0.25, -90))
+			var note_position = Vector3(-11.5 + note.fret, 1.75 - note.string * 0.25, -90)
+			noteObj.setup(note, null, scrool_speed, playback_speed, note_position)
 			notes.append(noteObj)
 		
 		for chord in levels[curr_difficulty].chords:
@@ -124,93 +119,44 @@ func create_notes_2():
 				break
 			
 			instance_chord_notes(chord)
-		
-		
+
 
 func instance_chord_notes(chord):
 	var chord_template = chord_templates[chord.chord_id]
-	var string = -1
 	var fret = -1
-	if chord_template.fret_0 != -1:
-		string = 0
-		fret = chord_template.fret_0
+	for string in range(6):
+		if chord_template.frets[string] == -1:
+			continue
+		fret = chord_template.frets[string]
 		var noteObj = note_node.instance()
-		noteObj.init_from_chord(chord.time, string, fret, scrool_speed, playback_speed)
-		noteObj.translate( Vector3(-11.5 + fret, 1.75 - string * 0.25, -90))
+		var note_position = Vector3(-11.5 + fret, 1.75 - string * 0.25, -90)
+		var note_info = {
+			"time": chord.time,
+			"string": string,
+			"fret": fret,
+			"sustain": 0
+		}
+		noteObj.setup(note_info, null, scrool_speed, playback_speed, note_position)
 		notes.append(noteObj)
-	
-	if chord_template.fret_1 != -1:
-		string = 1
-		fret = chord_template.fret_1
-		var noteObj = note_node.instance()
-		noteObj.init_from_chord(chord.time, string, fret, scrool_speed, playback_speed)
-		noteObj.translate( Vector3(-11.5 + fret, 1.75 - string * 0.25, -90))
-		notes.append(noteObj)
-	
-	if chord_template.fret_2 != -1:
-		string = 2
-		fret = chord_template.fret_2
-		var noteObj = note_node.instance()
-		noteObj.init_from_chord(chord.time, string, fret, scrool_speed, playback_speed)
-		noteObj.translate( Vector3(-11.5 + fret, 1.75 - string * 0.25, -90))
-		notes.append(noteObj)
-	
-	if chord_template.fret_3 != -1:
-		string = 3
-		fret = chord_template.fret_3
-		var noteObj = note_node.instance()
-		noteObj.init_from_chord(chord.time, string, fret, scrool_speed, playback_speed)
-		noteObj.translate( Vector3(-11.5 + fret, 1.75 - string * 0.25, -90))
-		notes.append(noteObj)
-	
-	if chord_template.fret_4 != -1:
-		string = 4
-		fret = chord_template.fret_4
-		var noteObj = note_node.instance()
-		noteObj.init_from_chord(chord.time, string, fret, scrool_speed, playback_speed)
-		noteObj.translate( Vector3(-11.5 + fret, 1.75 - string * 0.25, -90))
-		notes.append(noteObj)
-	
-	if chord_template.fret_5 != -1:
-		string = 5
-		fret = chord_template.fret_5
-		var noteObj = note_node.instance()
-		noteObj.init_from_chord(chord.time, string, fret, scrool_speed, playback_speed)
-		noteObj.translate( Vector3(-11.5 + fret, 1.75 - string * 0.25, -90))
-		notes.append(noteObj)
+
 
 func reorder_notes():
-	var not_sorted = true
-	
-	while(not_sorted):	
-		var switched = false
-		for i in range(notes.size() - 1):
-			for j in range(i, notes.size() - 1):
-				if notes[j + 1].time < notes[j].time:
-					switched = true
-					var temp = notes[j]
-					notes[j] = notes[j + 1]
-					notes[j + 1] = temp
-		
-		not_sorted = switched
+	for i in range(notes.size() - 1):
+		for j in range(0, notes.size() - 1 - i):
+			if notes[j + 1].time < notes[j].time:
+				var temp = notes[j]
+				notes[j] = notes[j + 1]
+				notes[j + 1] = temp
 
-func spawn_notes(delta):
-	time += delta
-	while curr_index < notes.size() and notes[curr_index].time <= time:
-		#var note_string = randi() % 6
-		#var note_fret = -(randi() % 3) + 3
-		var noteObj = note_node.instance()
-		noteObj.init(notes[curr_index].string, notes[curr_index].sustain)
-		noteObj.translate( Vector3(-11.5 + notes[curr_index].fret, 1.75 - notes[curr_index].string * 0.25, -90.0))
-		$Notes.add_child(noteObj)
-		curr_index += 1
 
-func spawn_notes_2():
-	while curr_index < notes.size() and notes[curr_index].time <= time + 6:
-		var time_diff = time + 6 - notes[curr_index].time
+func spawn_notes():
+	while curr_index < notes.size() and notes[curr_index].time <= time + time_offset:
+		var time_diff = time + time_offset - notes[curr_index].time
+		notes[curr_index].set_time_offset(time_offset)
 		notes[curr_index].translate(Vector3(0, 0, time_diff * scrool_speed))
 		$Notes.add_child(notes[curr_index])
 		curr_index += 1
+
 
 func play_music():	
 	var filepath
@@ -239,9 +185,10 @@ func play_music():
 		_update_volume()
 		$AudioStreamPlayer.play()
 
+
 func reset_notes():
 	notes.clear()
-	create_notes_2()
+	create_notes()
 	
 	$Notes.pause_mode = Node.PAUSE_MODE_STOP
 	for n in $Notes.get_children():
@@ -264,6 +211,7 @@ func reset_notes():
 		index += 1
 	
 	update_difficulty()
+
 
 func _on_OptionButton_item_selected(id):
 	for section in sections:

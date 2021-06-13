@@ -104,7 +104,6 @@ depth = 100.0
 material = ExtResource( 4 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-volume_db = -20.0
 
 [node name="GUI" type="Control" parent="."]
 margin_right = 40.0
@@ -235,6 +234,7 @@ transform = Transform( 0.996195, -0.0225576, 0.084186, 0, 0.965926, 0.258819, -0
 
 [node name="Spatial24" type="Spatial" parent="Fret_pos"]
 transform = Transform( 0.996195, -0.0225576, 0.084186, 0, 0.965926, 0.258819, -0.0871557, -0.257834, 0.96225, 12.5, 0, 0 )
+
 [connection signal="item_selected" from="GUI/OptionButton" to="." method="_on_OptionButton_item_selected"]
 [connection signal="pressed" from="GUI/Button" to="GUI" method="_on_Button_pressed"]
 [connection signal="value_changed" from="GUI/SpinBox" to="." method="_on_SpinBox_value_changed"]

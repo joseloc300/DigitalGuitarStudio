@@ -131,6 +131,7 @@ margin_top = 520.0
 margin_right = 1120.0
 margin_bottom = 595.0
 text = "Save and Back"
+
 [connection signal="value_changed" from="VBoxContainer/VBoxContainer2/slider_master_vol" to="." method="_on_slider_master_vol_value_changed"]
 [connection signal="value_changed" from="VBoxContainer/VBoxContainer2/slider_music_vol" to="." method="_on_slider_music_vol_value_changed"]
 [connection signal="pressed" from="btn_back" to="." method="_on_btn_back_pressed"]

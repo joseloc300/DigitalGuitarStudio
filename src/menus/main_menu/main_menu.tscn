@@ -29,10 +29,20 @@ __meta__ = {
 
 [node name="btn_play" type="Button" parent="."]
 margin_left = 930.0
-margin_top = 180.0
+margin_top = 150.0
 margin_right = 1120.0
-margin_bottom = 255.0
+margin_bottom = 225.0
 text = "Play"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="btn_jam_session" type="Button" parent="."]
+margin_left = 930.0
+margin_top = 250.0
+margin_right = 1120.0
+margin_bottom = 325.0
+text = "Jam Session"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -49,10 +59,15 @@ __meta__ = {
 
 [node name="btn_exit" type="Button" parent="."]
 margin_left = 930.0
-margin_top = 520.0
+margin_top = 450.0
 margin_right = 1120.0
-margin_bottom = 595.0
+margin_bottom = 525.0
 text = "Exit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [connection signal="pressed" from="btn_play" to="." method="_on_btn_play_pressed"]
+[connection signal="pressed" from="btn_jam_session" to="." method="_on_btn_jam_session_pressed"]
 [connection signal="pressed" from="btn_options" to="." method="_on_btn_options_pressed"]
 [connection signal="pressed" from="btn_exit" to="." method="_on_btn_exit_pressed"]
